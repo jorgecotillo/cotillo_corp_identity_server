@@ -37,11 +37,11 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.ApiConfiguration
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
                     RequireConsent = false,
-                    RedirectUris =           { "http://localhost:4040/callback" },
+                    RedirectUris =           { "http://juliofranciscodeiriarte166.org/callback" },
                     //NOTE: This link needs to match the link from the presentation layer - oidc-client
                     //      otherwise IdentityServer won't display the link to go back to the site
-                    PostLogoutRedirectUris = { "http://localhost:4040/home" }, 
-                    AllowedCorsOrigins =     { "http://localhost:4040" },
+                    PostLogoutRedirectUris = { "http://juliofranciscodeiriarte166.org/home" }, 
+                    AllowedCorsOrigins =     { "http://juliofranciscodeiriarte166.org" },
                     EnableLocalLogin = false,
                     AllowedScopes =
                     {
