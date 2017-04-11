@@ -1,5 +1,5 @@
-using IdentityServer4;
-using Julio.Francisco.De.Iriarte.IdentityServer.ApiConfiguration;
+﻿using IdentityServer4;
+using Julio.Francisco.De.Iriarte.IdentityServer.Configuration;
 using Julio.Francisco.De.Iriarte.IdentityServer.Caching;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
@@ -11,6 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
+using IdentityServer4.Services;
+using identity_server;
+using IdentityServer4.Test;
+using Julio.Francisco.De.Iriarte.IdentityServer.Models.Account;
 
 namespace Julio.Francisco.De.Iriarte.IdentityServer
 {
@@ -50,10 +54,12 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer
             // you should use a persistent cache such as Redis or SQL Server.
             services.AddDistributedMemoryCache();
 
+            services.AddTransient<IProfileService, ProfileService>();
+            services.AddTransient<TestUserStore>((provider => new TestUserStore(TestUsers.Users)));
             services.AddIdentityServer()
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryIdentityResources(Config.GetIdentityResources())
-                .AddInMemoryClients(Config.GetClients())
+                .AddInMemoryClients(Config.GetClients(Configuration))
                 .AddTemporarySigningCredential(); //TODO: To be removed with a more stable use of asymetric keys
         }
 

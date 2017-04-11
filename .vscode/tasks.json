@@ -7,7 +7,7 @@
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/identity_server.csproj"
+                "${workspaceRoot}/identity_server/identity_server.csproj"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"

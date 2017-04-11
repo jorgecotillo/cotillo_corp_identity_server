@@ -49,6 +49,9 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Controllers
         public async Task<IActionResult> Login(string returnUrl)
         {
             var vm = await _account.BuildLoginViewModelAsync(returnUrl);
+			object obj = null;
+
+			var x = obj ?? true;
 
             if (vm.IsExternalLoginOnly)
             {
@@ -201,7 +204,11 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Controllers
         public async Task<IActionResult> ExternalLoginCallback(string returnUrl)
         {
             // read external identity from the temporary cookie
-            var info = await HttpContext.Authentication.GetAuthenticateInfoAsync(IdentityServerConstants.ExternalCookieAuthenticationScheme);
+            var info = 
+                await 
+                HttpContext
+                .Authentication
+                .GetAuthenticateInfoAsync(IdentityServerConstants.ExternalCookieAuthenticationScheme);
             var tempUser = info?.Principal;
             if (tempUser == null)
             {
