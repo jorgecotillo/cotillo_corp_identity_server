@@ -81,7 +81,7 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Configuration
                 },
                 new Client
                 {
-                    ClientId = "wordpress",
+                    ClientId = "wordpress-local",
                     ClientName = "Wordpress Client",
                     AllowedGrantTypes = GrantTypes.Code,
                     AllowAccessTokensViaBrowser = true,
