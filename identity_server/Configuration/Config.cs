@@ -86,11 +86,11 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Configuration
                     AllowedGrantTypes = GrantTypes.Code,
                     AllowAccessTokensViaBrowser = true,
                     RequireConsent = false,
-                    RedirectUris =           { "http://no-ssl-wp/wp-admin/admin-ajax.php?action=openid-connect-authorize" },
+                    RedirectUris =           { "http://127.0.0.1:4080/wp-admin/admin-ajax.php?action=openid-connect-authorize" },
                         //NOTE: This link needs to match the link from the presentation layer - oidc-client
                         //      otherwise IdentityServer won't display the link to go back to the site
-                        PostLogoutRedirectUris = { "http://no-ssl-wp" },
-                    AllowedCorsOrigins =     { "http://no-ssl-wp" },
+                        PostLogoutRedirectUris = { "http://127.0.0.1:4080" },
+                    AllowedCorsOrigins =     { "http://127.0.0.1:4080" },
                     EnableLocalLogin = false,
                     AllowedScopes =
                     {
