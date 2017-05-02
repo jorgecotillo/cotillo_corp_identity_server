@@ -47,7 +47,27 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Configuration
                     PostLogoutRedirectUris = { jsDomain + "/home" }, 
                     AllowedCorsOrigins =     { jsDomain },
                     EnableLocalLogin = false,
-					AlwaysSendClientClaims = true,
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        "api1"
+                    }
+                },
+                new Client
+                {
+                    ClientId = "local-js",
+                    ClientName = "Angular2 JavaScript Client",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
+                    RequireConsent = false,
+                    RedirectUris =           { "http://localhost:5000/callback" },
+                    //NOTE: This link needs to match the link from the presentation layer - oidc-client
+                    //      otherwise IdentityServer won't display the link to go back to the site
+                    PostLogoutRedirectUris = { "http://localhost:5000/home" }, 
+                    AllowedCorsOrigins =     { "http://localhost:5000" },
+                    EnableLocalLogin = false,
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
@@ -66,7 +86,7 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Configuration
                     RedirectUris =           { wpDomain + "/wp-admin/admin-ajax.php?action=openid-connect-authorize" },
                         //NOTE: This link needs to match the link from the presentation layer - oidc-client
                         //      otherwise IdentityServer won't display the link to go back to the site
-                        PostLogoutRedirectUris = { wpDomain },
+                    PostLogoutRedirectUris = { wpDomain },
                     AllowedCorsOrigins =     { wpDomain },
                     EnableLocalLogin = false,
                     AllowedScopes =
@@ -76,7 +96,7 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Configuration
                         IdentityServerConstants.StandardScopes.Email
                     },
                     //AlwaysIncludeUserClaimsInIdToken = true,
-                            //AlwaysSendClientClaims = true,
+                    //AlwaysSendClientClaims = true,
                     ClientSecrets = new List<Secret>() { new Secret("VUdPR5HIlKLe4sVmMe6JbZk8v/JMZC5qy8VY2Chdfrg=".Sha256()) }
                 },
                 new Client
@@ -89,7 +109,7 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Configuration
                     RedirectUris =           { "http://127.0.0.1:4080/wp-admin/admin-ajax.php?action=openid-connect-authorize" },
                         //NOTE: This link needs to match the link from the presentation layer - oidc-client
                         //      otherwise IdentityServer won't display the link to go back to the site
-                        PostLogoutRedirectUris = { "http://127.0.0.1:4080" },
+                    PostLogoutRedirectUris = { "http://127.0.0.1:4080" },
                     AllowedCorsOrigins =     { "http://127.0.0.1:4080" },
                     EnableLocalLogin = false,
                     AllowedScopes =
@@ -99,7 +119,7 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Configuration
                         IdentityServerConstants.StandardScopes.Email
                     },
                     //AlwaysIncludeUserClaimsInIdToken = true,
-                            //AlwaysSendClientClaims = true,
+                    //AlwaysSendClientClaims = true,
                     ClientSecrets = new List<Secret>() { new Secret("VUdPR5HIlKLe4sVmMe6JbZk8v/JMZC5qy8VY2Chdfrg=".Sha256()) }
                 }
             };
