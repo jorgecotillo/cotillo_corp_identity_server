@@ -62,11 +62,11 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Configuration
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
                     RequireConsent = false,
-                    RedirectUris =           { "https://identity.provider.cotillo-corp.com/callback" },
+                    RedirectUris =           { "http://localhost:4040/callback" },
                     //NOTE: This link needs to match the link from the presentation layer - oidc-client
                     //      otherwise IdentityServer won't display the link to go back to the site
-                    PostLogoutRedirectUris = { "https://identity.provider.cotillo-corp.com/home" }, 
-                    AllowedCorsOrigins =     { "https://identity.provider.cotillo-corp.com" },
+                    PostLogoutRedirectUris = { "http://localhost:4040/home" }, 
+                    AllowedCorsOrigins =     { "http://localhost:4040" },
                     EnableLocalLogin = false,
                     AllowedScopes =
                     {
