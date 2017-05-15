@@ -121,6 +121,24 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Configuration
                     //AlwaysIncludeUserClaimsInIdToken = true,
                     //AlwaysSendClientClaims = true,
                     ClientSecrets = new List<Secret>() { new Secret("VUdPR5HIlKLe4sVmMe6JbZk8v/JMZC5qy8VY2Chdfrg=".Sha256()) }
+                },
+                new Client
+                {
+                    ClientId = "android-app",
+                    ClientName = "Android Client",
+                    AllowedGrantTypes = GrantTypes.Code,
+                    EnableLocalLogin = false,
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        IdentityServerConstants.StandardScopes.OfflineAccess
+                    },
+                    //AlwaysIncludeUserClaimsInIdToken = true,
+                    //AlwaysSendClientClaims = true,
+                    ClientSecrets = new List<Secret>() { new Secret("VUdPR5HIlKLe4sVmMe6JbZk8v/JMZC5qy8VY2Chdfrg=".Sha256()) },
+                    AllowOfflineAccess = true
                 }
             };
         }

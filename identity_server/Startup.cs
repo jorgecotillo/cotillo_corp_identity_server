@@ -112,6 +112,18 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer
                 StateDataFormat = dataFormat
             });
 
+            app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
+            {
+                AuthenticationScheme = schemeName,
+                DisplayName = "Office 265",
+                SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme,
+                SignOutScheme = IdentityServerConstants.SignoutScheme,
+                ClientId = clientId,
+                Authority = authority,
+                ResponseType = OpenIdConnectResponseType.IdToken,
+                StateDataFormat = dataFormat
+            });
+
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
         }
