@@ -20,7 +20,7 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer
             var host = new WebHostBuilder()
                 .UseConfiguration(config)
                 .UseKestrel()
-                .UseUrls("http://localhost:5000")
+                .UseUrls("http://*:5000")
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
