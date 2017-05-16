@@ -127,17 +127,20 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Configuration
                     ClientId = "android-app",
                     ClientName = "Android Client",
                     AllowedGrantTypes = GrantTypes.Hybrid,
+                    RedirectUris = { "io.identitymodel.native://callback" },
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.OfflineAccess,
-                        "api"
+                        "api1"
                     },
                     RequireClientSecret = false,
                     AllowOfflineAccess = true,
-                    RequirePkce = true
+                    RequirePkce = true,
+                    EnableLocalLogin = false,
+                    RequireConsent = false,
                 }
             };
         }

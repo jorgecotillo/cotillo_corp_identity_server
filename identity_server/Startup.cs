@@ -112,7 +112,7 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer
                 StateDataFormat = dataFormat
             });
 
-            app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
+            /*app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
             {
                 AuthenticationScheme = schemeName,
                 DisplayName = "Office 265",
@@ -122,7 +122,7 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer
                 Authority = authority,
                 ResponseType = OpenIdConnectResponseType.IdToken,
                 StateDataFormat = dataFormat
-            });
+            });*/
 
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
