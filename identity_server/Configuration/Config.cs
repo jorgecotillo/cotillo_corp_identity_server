@@ -127,7 +127,7 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Configuration
                     ClientId = "android-app",
                     ClientName = "Android Client",
                     AllowedGrantTypes = GrantTypes.Hybrid,
-                    RedirectUris = { "io.identitymodel.native://callback" },
+                    RedirectUris = { "freemason://callback" },
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
