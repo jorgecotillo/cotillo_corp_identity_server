@@ -134,7 +134,7 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Configuration
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.OfflineAccess,
-                        "api1"
+                        "api1" 
                     },
                     RequireClientSecret = false,
                     AllowOfflineAccess = true,
