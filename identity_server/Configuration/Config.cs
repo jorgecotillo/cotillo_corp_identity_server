@@ -74,7 +74,8 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Configuration
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email,
                         "api1"
-                    }
+                    },
+                    ClientSecrets = new List<Secret>() { new Secret("VUdPR5HIlKLe4sVmMe6JbZk8v/JMZC5qy8VY2Chdfrg=".Sha256()) }
                 },
                 new Client
                 {
