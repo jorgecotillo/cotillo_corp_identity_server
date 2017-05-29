@@ -57,6 +57,27 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Configuration
                 },
                 new Client
                 {
+                    ClientId = "postman",
+                    ClientName = "Postman Client",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
+                    RequireConsent = false,
+                    RedirectUris =           { "https://www.getpostman.com/oauth2/callback" },
+                    //NOTE: This link needs to match the link from the presentation layer - oidc-client
+                    //      otherwise IdentityServer won't display the link to go back to the site
+                    PostLogoutRedirectUris = { "https://www.getpostman.com" }, 
+                    AllowedCorsOrigins =     { "https://www.getpostman.com" },
+                    EnableLocalLogin = false,
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        "api1"
+                    }
+                },
+                new Client
+                {
                     ClientId = "local-js",
                     ClientName = "Angular2 JavaScript Client",
                     AllowedGrantTypes = GrantTypes.Implicit,
