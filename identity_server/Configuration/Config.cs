@@ -59,7 +59,7 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Configuration
                 {
                     ClientId = "postman",
                     ClientName = "Postman Client",
-                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowedGrantTypes = GrantTypes.Code,
                     AllowAccessTokensViaBrowser = true,
                     RequireConsent = false,
                     RedirectUris =           { "https://www.getpostman.com/oauth2/callback" },
