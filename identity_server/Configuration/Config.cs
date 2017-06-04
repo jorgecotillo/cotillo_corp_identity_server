@@ -169,6 +169,29 @@ namespace Julio.Francisco.De.Iriarte.IdentityServer.Configuration
                 },
                 new Client
                 {
+                    ClientId = "wordpress-az-ssl",
+                    ClientName = "Wordpress Client",
+                    AllowedGrantTypes = GrantTypes.Code,
+                    AllowAccessTokensViaBrowser = true,
+                    RequireConsent = false,
+                    RedirectUris =           { "https://wordpress-paas.azurewebsites.net/wp-admin/admin-ajax.php?action=openid-connect-authorize" },
+                        //NOTE: This link needs to match the link from the presentation layer - oidc-client
+                        //      otherwise IdentityServer won't display the link to go back to the site
+                    PostLogoutRedirectUris = { "https://wordpress-paas.azurewebsites.net" },
+                    AllowedCorsOrigins =     { "https://wordpress-paas.azurewebsites.net" },
+                    EnableLocalLogin = false,
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email
+                    },
+                    //AlwaysIncludeUserClaimsInIdToken = true,
+                    //AlwaysSendClientClaims = true,
+                    ClientSecrets = new List<Secret>() { new Secret("VUdPR5HIlKLe4sVmMe6JbZk8v/JMZC5qy8VY2Chdfrg=".Sha256()) }
+                },
+                new Client
+                {
                     ClientId = "android-app",
                     ClientName = "Android Client",
                     AllowedGrantTypes = GrantTypes.Hybrid,
